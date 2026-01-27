@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fahrenheit and Celsius Converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="calculator">
+      <img id="thermometer" src="/assets2/asset/53cd8bcc84aafa641f000020.png" alt="Thermometer" />
+      <header><b>Temperature Converter</b></header>
+
+      <!-- Fahrenheit input -->
+      <div id="input">
+        <label>Fahrenheit:</label>
+        <input id="fahr" type="number" size="20" onkeyup="convert('fahrenheit')" />
+      </div>
+
+      <!-- Celsius input -->
+      <div id="input">
+        <label>Celsius:</label>
+        <input id="cels" type="number" size="20" onkeyup="convert('celsius')" />
+      </div>
+
+      <!-- Kelvin input -->
+      <div id="input">
+        <label>Kelvin:</label>
+        <input id="kel" type="number" size="20" onkeyup="convert('kelvin')" />
+      </div>
+
+      <!-- Reset button -->
+      <button type="button" onclick="reset();">Clear Fields</button>
+
+      <footer>
+        <small>Temperature Converter App &copy; 2026</small>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
