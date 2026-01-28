@@ -1,58 +1,60 @@
-// Function to clear all input fields
+// Function that clears all fields
 function reset() {
-  document.getElementById('fahr').value = '';
-  document.getElementById('cels').value = '';
-  document.getElementById('kel').value = '';
+  document.getElementById("fahr").value = "";
+  document.getElementById("cels").value = "";
+  document.getElementById("kel").value = "";
 }
 
-// Function to convert temperatures based on which input was changed
+// Function to convert temperatures
 function convert(degrees) {
-  var x = 0;
-  var y = 0;
+  const fahr = document.getElementById("fahr");
+  const cels = document.getElementById("cels");
+  const kel  = document.getElementById("kel");
 
+  let x, y;
+
+  // Fahrenheit input
   if (degrees === "fahrenheit") {
-    var fahrValue = document.getElementById("fahr").value;
-    if (fahrValue === '') {
-      document.getElementById("cels").value = '';
-      document.getElementById("kel").value = '';
+    if (fahr.value === "") {
+      cels.value = "";
+      kel.value = "";
       return;
     }
-    x = (fahrValue - 32) * 5 / 9;
-    x = x.toFixed(2);
-    document.getElementById("cels").value = x;
 
-    y = (parseFloat(fahrValue) + 459.67) * 5 / 9;
-    y = y.toFixed(2);
-    document.getElementById("kel").value = y;
+    x = (fahr.value - 32) * 5 / 9;
+    cels.value = x.toFixed(2);
 
-  } else if (degrees === "celsius") {
-    var celsValue = document.getElementById("cels").value;
-    if (celsValue === '') {
-      document.getElementById("fahr").value = '';
-      document.getElementById("kel").value = '';
+    y = (parseFloat(fahr.value) + 459.67) * 5 / 9;
+    kel.value = y.toFixed(2);
+  }
+
+  // Celsius input
+  else if (degrees === "celsius") {
+    if (cels.value === "") {
+      fahr.value = "";
+      kel.value = "";
       return;
     }
-    x = celsValue * 9 / 5 + 32;
-    x = x.toFixed(2);
-    document.getElementById("fahr").value = x;
 
-    y = parseFloat(celsValue) + 273.15;
-    y = y.toFixed(2);
-    document.getElementById("kel").value = y;
+    x = cels.value * 9 / 5 + 32;
+    fahr.value = x.toFixed(2);
 
-  } else if (degrees === "kelvin") {
-    var kelValue = document.getElementById("kel").value;
-    if (kelValue === '') {
-      document.getElementById("fahr").value = '';
-      document.getElementById("cels").value = '';
+    y = parseFloat(cels.value) + 273.15;
+    kel.value = y.toFixed(2);
+  }
+
+  // Kelvin input
+  else if (degrees === "kelvin") {
+    if (kel.value === "") {
+      fahr.value = "";
+      cels.value = "";
       return;
     }
-    x = (kelValue - 273.15) * 9 / 5 + 32;
-    x = x.toFixed(2);
-    document.getElementById("fahr").value = x;
 
-    y = kelValue - 273.15;
-    y = y.toFixed(2);
-    document.getElementById("cels").value = y;
+    x = (kel.value - 273.15) * 9 / 5 + 32;
+    fahr.value = x.toFixed(2);
+
+    y = kel.value - 273.15;
+    cels.value = y.toFixed(2);
   }
 }
